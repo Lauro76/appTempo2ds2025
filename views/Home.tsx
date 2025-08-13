@@ -18,6 +18,27 @@ export default function Home(){
                 >
                     <Text style={styles.textoBtn}>Itanhaém</Text>
                 </TouchableOpacity>
+
+                <TouchableOpacity 
+                    style={styles.btn}
+                    onPress={()=>navigation.navigate('mongagua' as never)}
+                >
+                    <Text style={styles.textoBtn}>mongagua</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                    style={styles.btn}
+                    onPress={()=>navigation.navigate('peruibe' as never)}
+                >
+                    <Text style={styles.textoBtn}>peruibe</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                    style={styles.btn}
+                    onPress={()=>navigation.navigate('praiagrande' as never)}
+                >
+                    <Text style={styles.textoBtn}>praiagrande</Text>
+                </TouchableOpacity>
         </View>
     );
 } 

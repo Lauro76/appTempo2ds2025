@@ -2,38 +2,31 @@ import {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 import Tempo from '../components/Tempo';
 import Api from '../components/Api';
-
-export default function Itanhaem(){
+export default function mongagua(){
     const [dados, setDados] = useState<any[]>([]);
 
     async function buscaTempo(){
-        const response = await Api.get('weather?array_limit=4&fields=only_results,temp,city_name,forecast,condition,max,min,description,date,moon_phase&key=f5179305&city_name=Itanhaem,SP');
+        const response = await Api.get('weather?array_limit=4&fields=only_results,temp,city_name,forecast,condition,max,min,description,moon_phase,humidity,date&key=f5179305&city_name=Itanhaem,SP');
         setDados(response.data.forecast);
     }
     useEffect(
-        ()=>{
-            buscaTempo()
+        ()=>{buscaTempo()
         },[]);
 
     return(
         <View style={styles.bloco}>
-            <Text style={styles.Texto}>Previsão do Tempo para Itanhaém</Text>
+            <Text style={styles.Texto}>Previsão do Tempo para mongagua</Text>
 
             <FlatList 
                 data={dados}
                 keyExtractor={(item)=>item.date}
-                renderItem={({item})=> <Tempo
-                date={item.date} 
-                max={item.max} min={item.min}
-                 description={item.description} 
+                renderItem={({item})=> <Tempo date={item.date} 
+                max={item.max} min={item.min} description={item.description} 
                 condition={item.condition}
-                 luas={item.moon_phase}
-                 humidity={item.humidity} 
-                />}
+                humidity={item.humidity}
+                luas={item.moon_phase}/>}
                 style={styles.lista}
-                />
-                
-            /
+            />
         </View>
     );
 }
@@ -51,6 +44,5 @@ const styles = StyleSheet.create({
     lista:{
         height:'70%',
         width:'100%'
-    }
-    
+}
 });
