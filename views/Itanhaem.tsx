@@ -7,7 +7,7 @@ export default function Itanhaem(){
     const [dados, setDados] = useState<any[]>([]);
 
     async function buscaTempo(){
-        const response = await Api.get('weather?array_limit=4&fields=only_results,temp,city_name,forecast,condition,max,min,description,date,moon_phase&key=f5179305&city_name=Itanhaem,SP');
+        const response = await Api.get('weather?array_limit=4&fields=only_results,temp,city_name,forecast,condition,max,min,description,date,moon_phase&key=1c749c47&city_name=Itanhaem,SP');
         setDados(response.data.forecast);
     }
     useEffect(
